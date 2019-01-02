@@ -15,27 +15,35 @@
 	<!-- use the viewport one for all your pages -->
 	<title>Cryptopurr Columbus </title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
     <link href="images/cc_cat_favicon_pixabay.png" rel="icon" type="image/png" sizes="48*48">
 </head>
 <body>
-	<i id ="closed" class="fa fa-envelope"></i>
+	<a href="mailme.html"><i id="closed" class="fa fa-envelope"></i></a>
 	<!-- <i id = "open" class="far fa-envelope-open" display ="none"></i> -->
 	<!-- incomplete bullshit  -->
 <script type="text/javascript">
-$(document).ready(
-  function udaDo() {
-    el = document.getElementById("closed");
-    el.classList.remove("fa-envelope");
-    el.classList.add("fa-envelope-open");
+$(document).ready(function() {
+  handlerIn = function() {
+    console.log($(this))
+    if ($(this).hasClass("fa-envelope")) {
+      $(this).removeClass("fa-envelope");
+      $(this).addClass("fa-envelope-open");
+    }
   }
-  function loadStuff() {
-    el = document.getElementById("closed");
-    el.addEventListener("click", udaDo);
-    el.addEventListener("mouseover", udaDo);
-  }()
-);
- 
+  handlerOut = function() {
+    console.log("bahar aa raha hai");
+    console.log($(this))
+    if ($(this).hasClass("fa-envelope-open")) {
+      $(this).removeClass("fa-envelope-open");
+      $(this).addClass("fa-envelope");
+    }
+  }
+  $("#closed").hover(handlerIn, handlerOut)
+  //$("#closed").mouseover(handlerIn)
+  //$("#closed").mouseleave(handlerOut)
+  //$("#closed").mouseenter(handlerIn).mouseleave(handlerOut);
+});
 </script>
 <!-- working on aws for contact me page -->
 
